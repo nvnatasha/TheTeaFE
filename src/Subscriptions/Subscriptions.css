@@ -1,12 +1,12 @@
 .subscription-image {
-    width: 50px; /* Adjust the width as needed */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 50%; /* Optional: Makes the image round */
+    width: 180px; 
+    height: auto; 
+    border-radius: 50%; 
 }
 
 .tea-image {
-    width: 30px; /* Adjust the width as needed */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 5px; /* Optional: Adds rounded corners */
-    margin-right: 10px; /* Space between the image and text */
+    width: 30px; 
+    height: auto; 
+    border-radius: 5px; 
+    margin-right: 10px; 
 }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./Teas.css";
+import teaImage from "../assets/tea.jpg";
 
 const Tea = () => {
     const [teas, setTeas] = useState([]);
@@ -17,6 +18,11 @@ const Tea = () => {
         <ul>
             {teas.map((tea) => (
                 <li key={tea.id}>
+                    <img 
+                        src={teaImage}
+                        alt={tea.attributes.name} 
+                        className="tea-image" 
+                    />
                     <h2>{tea.attributes.name}</h2>
                     <p>Description: {tea.attributes.description}</p>
                     <p>Temperature & Brew Time: ({tea.attributes.temp}, {tea.attributes.brew_time})</p>
