@@ -1,16 +1,18 @@
-import { useState, useEffect } from "react";
-import "./Teas.css";
-import teaImage from "../assets/tea.jpg";
+import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+import "./Teas.css"
+import teaImage from "../assets/tea.jpg"
 
 const Tea = () => {
-    const [teas, setTeas] = useState([]);
+    const [teas, setTeas] = useState([])
+    const navigate = useNavigate()
 
     useEffect(() => {
     fetch("http://localhost:3000/api/v1/teas") 
         .then((response) => response.json())
         .then((data) => setTeas(data.data))
-        .catch((error) => console.error("Error fetching teas:", error));
-    }, []);
+        .catch((error) => console.error("Error fetching teas:", error))
+    }, [])
 
     return (
         <div>
@@ -29,6 +31,7 @@ const Tea = () => {
                 </li>
             ))}
         </ul>
+        <button onClick={() => navigate("/admin")}>Back to Admin Portal</button>
         </div>
     )
 }

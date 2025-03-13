@@ -23,7 +23,7 @@ function AdminPortal({ userData, setUserData }) {
 
     return (
         <div className="admin-portal">
-        <div className="admin-header">The Tea</div>
+        <div className="admin-header">Talk DirTea To Me</div>
             <div className="info-container">
                 <section className="info-buttons-container">
                 <Link to={'/customers'}>
