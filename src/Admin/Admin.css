@@ -1,0 +1,28 @@
+.admin-portal {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-header {
+    font-size:xx-large;
+}
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.info-buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.admin-nav {
+    margin: 10px;
+}
+
+.logout-button {
+    margin: 10px;
+}
