@@ -1,12 +1,65 @@
-# React + Vite
+#ReadMe
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules. This repo also includes Cypress and Router.
+## Frontend - Tea Subscription Admin Portal (Vite/React)
+## Overview
+This frontend application uses React and Vite to interact with the backend API and display the information about customers, subscriptions, and teas. The admin will log in and manage the data for these entities via an admin portal.
 
-Currently, two official plugins are available:
+## Getting Started
+Prerequisites
+- Node.js (v16.x or higher)
+- npm
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ ## Installation
 
-## Expanding the ESLint configuration
+ 1. Clone the Repository
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+    git clone https://github.com/yourusername/tea-subscription-frontend.git
+cd tea-subscription-frontend
+
+2. Install Dependencie
+
+   npm install
+
+3. Start the Development Server
+
+   npm run dev
+
+   The frontend will be available at http://localhost:5173.
+
+
+## Frontend Flow
+
+1. Login Page:
+
+- A login page will be displayed where the admin can log in.
+  
+2. Admin Portal:
+
+- Upon successful login, the user will be redirected to the admin portal.
+- The admin portal offers three sections:
+  --Customers: View or manage customers.
+  --Subscriptions: View or manage subscriptions.
+  --Teas: View teas.
+
+  3. Logout:
+
+- A logout button will be available in the admin portal, which logs the user out and redirects them back to the login page.
+
+  ## Structure of the Application
+
+  - App Component: The main entry point of the app. Handles routing between login and admin portal.
+  - Login Component: Contains the login form and submits the credentials to the backend.
+  - AdminPortal Component: Displays the admin dashboard with links to manage customers, subscriptions, and teas.
+  - Customer, Subscription, Tea Components: Handle the viewing and managing of customers, subscriptions, and teas.
+ 
+    ## API Interaction
+
+  - The frontend interacts with the backend API using Axios (or another HTTP client).
+  - All data is fetched and displayed in the portal with options to create new records or update existing ones.
+
+
+## Contributing
+Fork the repository.
+Create a new branch for your feature.
+Make your changes and commit them.
+Push your changes and create a pull request.
