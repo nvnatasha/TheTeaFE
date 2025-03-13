@@ -31,7 +31,7 @@ const Subscription = () => {
                     <h3>Teas:</h3>
                     <ul>
                         {subscription.attributes.teas.map((tea) => (
-                        <li key={tea.id}>
+                        <li className="tea-element" key={tea.id}>
                         <img 
                             src={teaImage} 
                             alt={tea.name} 
