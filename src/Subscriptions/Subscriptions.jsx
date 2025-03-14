@@ -4,6 +4,7 @@ import "./Subscriptions.css";
 import catteaImage from "../assets/cattea.jpg";
 import teaImage from "../assets/tea.jpg";
 
+
 const Subscription = () => {
     const [subscriptions, setSubscriptions] = useState([])
 
@@ -13,6 +14,44 @@ const Subscription = () => {
         .then((data) => setSubscriptions(data.data))
         .catch((error) => console.error("Error fetching subscriptions:", error))
     }, []);
+
+
+
+    const handleToggleStatus = async (subscriptionId, currentStatus) => {
+        const newStatus = !currentStatus; 
+    
+        try {
+            const response = await fetch(`http://localhost:3000/api/v1/subscriptions/${subscriptionId}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ status: newStatus }), 
+            });
+    
+            if (!response.ok) {
+                throw new Error("Failed to update subscription status");
+            }
+    
+            const updatedSubscriptions = subscriptions.map((sub) => 
+                sub.id === subscriptionId
+                    ? { 
+                        ...sub, 
+                        attributes: { 
+                            ...sub.attributes,  
+                            status: newStatus ? 'active' : 'inactive'
+                        } 
+                    }
+                    : sub
+            )
+            console.log(updatedSubscriptions)
+            setSubscriptions(updatedSubscriptions) 
+            
+        } catch (error) {
+            console.error("Error updating subscription status:", error);
+        }
+    };
+    
 
     return (
         <div>
@@ -28,6 +67,10 @@ const Subscription = () => {
                     <h2>{subscription.attributes.title}</h2>
                     <p><strong>Price:</strong> ${subscription.attributes.price}</p>
                     <p><strong>Status:</strong> {subscription.attributes.status}</p>
+                    <button  onClick={() => handleToggleStatus(subscription.id, subscription.attributes.status)}
+                    >  
+                        Change Status
+                    </button>
                     <h3>Teas:</h3>
                     <ul>
                         {subscription.attributes.teas.map((tea) => (
